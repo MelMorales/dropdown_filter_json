@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="data.json"></script>
+
+<style>
+th, td {
+text-align: left;
+}
+
+.table {
+	align: center;
+	width: auto;
+	background-color: #fcf7ea;
+}
+
+
+
+th {
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background-color: #C15549;
+}
+
+
+
+</style>
+
+</head>
+<body>
+<h1>Pick a Demonination</h1>
+<form id="form1">
+<select id="thedropdown">
+<option value="0">Choose Denomination</option>
+<option value="ame">African Methodist Episcopal</option>
+<option value="amez">African Methodist Episcopal Zion</option>
+<option value="ab">American Baptist</option>
+<option value="ang">Anglican</option>
+<option value="aoca">Antiochian Orthodox Christian Archdiocese</option>
+<option value="apos">Apostolic</option>
+<option value="aog">Assemblies of God</option>
+<option value="bap">Baptist</option>
+<option value="bbfi">Baptist Bible Fellowship International</option>
+<option value="bi">Baptist- Independent</option>
+<option value="bible">Bible</option>
+<option value="bret">Brethren</option>
+<option value="calvary">Calvary Chapel</option>
+<option value="cath">Catholic</option>
+<option value="char">Charismatic</option>
+<option value="cma">Christian and Missionary Alliance</option>
+<option value="coc">Church of Christ</option>
+<option value="cog">Church of God</option>
+<option value="cogp">Church of God (Pentecostal)</option>
+<option value="cogc">Church of God in Christ</option>
+<option value="ljc">Church of Our Lord Jesus Christ of the Apostolic Faith</option>
+<option value="cnaz">Church of the Nazarene</option>
+<option value="churches">Churches of Christ</option>
+<option value="comm">Community</option>
+<option value="coop">Cooperative Baptist Fellowship</option>
+<option value="disc">Disciples of Christ</option>
+<option value="epis">Episcopal</option>
+<option value="evanf">Evangelical Free Church</option>
+<option value="evanl">Evangelical Lutheran in America</option>
+<option value="four">Foursquare Gospel</option>
+<option value="free">Free Methodist Church of North America</option>
+<option value="full">Full Gospel</option>
+<option value="general">General Conference Church of God (Seventh Day)</option>
+<option value="greek">Greek Orthodox</option>
+<option value="intl">International Pentecostal Holiness</option>
+<option value="luth">Lutheran</option>
+<option value="luthm">Lutheran Church of Missouri Synod</option>
+<option value="menno">Mennonite</option>
+<option value="mess">Messianic Judaism</option>
+<option value="meth">Methodist</option>
+<option value="naz">Nazarene</option>
+<option value="non">Non-Denominational</option>
+<option value="orth">Orthodox</option>
+<option value="other">Other Christian</option>
+<option value="pent">Pentecostal</option>
+<option value="penta">Pentecostal Assemblies of the World</option>
+<option value="presb">Presbyterian</option>
+<option value="reformed">Reformed</option>
+<option value="rest">Restorationist</option>
+<option value="roman">Roman Catholic</option>
+<option value="seventh">Seventh Day Adventist</option>
+<option value="south">Southern Baptist Convention</option>
+<option value="unitedc">United Church of Christ</option>
+<option value="unitedm">United Methodist</option>
+<option value="unitedp">United Pentecostal Church International</option>
+<option value="vineyard">Vineyard</option>
+<option value="wesleyan">Wesleyan</option>
+<option value="wisconsin">Wisconsin Evangelical Lutheran Synod</option>
+</select>
+</form>
+<p>Total in this denomination: <span id="answer2"></span></p>
+<table width="1000">
+<thead>
+<th>NAME</th><th>ADDRESS</th><th>ZIPCODE</th>
+</thead>
+<tbody id="answer">
+</tbody>
+</table>
+
+<script>
+//data = JSON.parse(data);
+document.getElementById("form1").onchange = function() {
+j=0;
+
+mycat = document.getElementById("thedropdown").value;
+document.getElementById("answer").innerHTML = " ";
+ for(i=0;i<data.length; i++) {
+  if(mycat == data[i].category) {
+ document.getElementById("answer").innerHTML += "<tr><td><a href=" + data[i].link + " target='_blank'>" + data[i].name + "</a></td><td>" + data[i].address + "</td><td>" + data[i].zip + "</td><td>";
+ j=j+1;
+ }
+ }
+ 
+ document.getElementById("answer2").innerHTML = j;
+
+ }
+ </script>
+ </body>
+ </html>
